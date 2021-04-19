@@ -46,7 +46,7 @@ def imprimirtablero(tablero, secuencia):
     else:
         print("La secuencia no es valida")
 
-secuencia = [1, 2, 3, 4, 1, 2, 3, 4]
+secuencia = [1, 2, 3, 4, 1, 2, 3, 9]
 tablero = tablerovacio()
 soltarfichaencolumna(tablero, secuencia)
 validez = validarcolumna(secuencia)
