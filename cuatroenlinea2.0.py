@@ -8,7 +8,6 @@ def tablerovacio():
         [0, 0, 0, 0, 0, 0, 0],
     ]
 
-
 def soltarfichaencolumna(ficha, columna, tablero):
     for row in range(6, 0, -1):
         if tablero[row - 1][int(columna) - 1] == 0:
@@ -33,7 +32,15 @@ def juego(secuencia):
         if tirovalido(columna):
             soltarfichaencolumna(ficha, columna, tablero)
             for row in tablero:
-                print(row)
+                print(" |", end="")
+                for col in row:
+                    if col == 0:
+                        print("   ", end="")
+                    else:
+                        print(f"  {col}", end='')
+                print(" |")
+                print("\n")
+            print(" +---------------------+")
         else:
             print("Valor de Columna Inválido")
             break
@@ -55,7 +62,15 @@ def contenidoCol(columna, tablero):
 
 tablero = tablerovacio()
 for row in tablero:
-       print(row)
+    print(" |", end="")
+    for col in row:
+        if col == 0:
+            print("   ", end="")
+        else:
+            print(f" {col}  ", end='')
+    print("|")
+    print("\n")
+print(" +---------------------+")
 secuencia = [0,1,2,3,4,5]
 juego(secuencia)
 fila = input("\nNro de Fila que desea Imprimir: ")
