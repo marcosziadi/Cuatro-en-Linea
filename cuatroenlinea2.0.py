@@ -1,3 +1,4 @@
+#Cuatro En Linea
 def tablerovacio():
     return[
         [0, 0, 0, 0, 0, 0, 0],
@@ -71,7 +72,7 @@ for row in tablero:
     print("|")
     print("\n")
 print(" +---------------------+")
-secuencia = [0,1,2,3,4,5]
+secuencia = [0,1,2,3,4]
 juego(secuencia)
 fila = input("\nNro de Fila que desea Imprimir: ")
 imprimir = contenidoFila(fila, tablero)
