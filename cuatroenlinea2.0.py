@@ -1,4 +1,4 @@
-#Cuatro En Linea
+#Cuatro En Linea Juego
 def tablerovacio():
     return[
         [0, 0, 0, 0, 0, 0, 0],
