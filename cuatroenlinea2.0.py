@@ -1,4 +1,3 @@
-
 def tablerovacio():
     return[
         [0, 0, 0, 0, 0, 0, 0],
@@ -10,54 +9,50 @@ def tablerovacio():
     ]
 
 
-def soltarfichaencolumna(tablero, secuencia):
-    validez = validarcolumna(secuencia)
-    if validez:
-     for row in range(5, 0, -1):
-         for c in range(len(secuencia)):
-                if c % 2 == 0:
-                    if tablero[row][secuencia[c] - 1] == 0:
-                        tablero[row][secuencia[c] - 1] = 1
-                else:
-                    if tablero[row][secuencia[c] - 1] == 0:
-                     tablero[row][secuencia[c] - 1] = 2
-    return
+def soltarfichaencolumna(ficha, columna, tablero):
+    for row in range(6, 0, -1):
+        if tablero[row - 1][int(columna) - 1] == 0:
+            tablero[row - 1][int(columna) - 1] = ficha
+            return
 
-
-def validarcolumna(secuencia):
-    a = 0
-    b = 0
-    for c in range(len(secuencia)):
-        if 8 > secuencia[c] > 0:
-            a += 1
-        else:
-            b += 1
-    if len(secuencia) == (a - b):
-        return True
-    else:
+def tirovalido(columna):
+    if int(columna) > 7 or int(columna) < 1:
         return False
-
-
-def imprimirtablero(tablero, secuencia):
-    validez = validarcolumna(secuencia)
-    if validez:
-        for row in tablero:
-            print(row)
     else:
-        print("La secuencia no es valida")
+        return True
+
+def juego(secuencia):
+    for a in secuencia:
+        if a % 2 == 0:
+          ficha = 1
+        else:
+          ficha = 2
+
+        columna = input("\nInsertar Numero de Columna: ")
+
+        if tirovalido(columna):
+            soltarfichaencolumna(ficha, columna, tablero)
+            for row in tablero:
+                print(row)
+        else:
+            print("Valor de Columna Inválido")
+            break
+
+def contenidoFila(fila, tablero):
+    imprimir = []
+    abc = 6 - int(fila)
+    for a in range(0, 7, +1):
+        celda = tablero[abc][a]
+        imprimir.append(celda)
+    return imprimir
 
 
-def contenidocolumna(nrocol, tablero):
-    columna = []
-    for row in tablero:
-        celda = row[nrocol - 1]
-        columna.append(celda)
-    return columna
-
-
-secuencia = [1, 2, 3, 4, 1, 2, 3, 4]
 tablero = tablerovacio()
-soltarfichaencolumna(tablero, secuencia)
-imprimirtablero(tablero, secuencia)
-print(contenidocolumna(2, tablero))
+for row in tablero:
+       print(row)
+secuencia = [0,1,2,3,4]
+juego(secuencia)
+fila = input("Nro de Fila que desea Imprimir: ")
+imprimir = contenidoFila(fila, tablero)
+print(imprimir)
 
