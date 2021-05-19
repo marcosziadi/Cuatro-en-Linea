@@ -46,13 +46,23 @@ def contenidoFila(fila, tablero):
         imprimir.append(celda)
     return imprimir
 
+def contenidoCol(columna, tablero):
+    imprimir = []
+    for a in range(5, -1, -1):
+        celda = tablero[a][int(columna) - 1]
+        imprimir.append(celda)
+    return imprimir
 
 tablero = tablerovacio()
 for row in tablero:
        print(row)
-secuencia = [0,1,2,3,4]
+secuencia = [0,1,2,3,4,5]
 juego(secuencia)
-fila = input("Nro de Fila que desea Imprimir: ")
+fila = input("\nNro de Fila que desea Imprimir: ")
 imprimir = contenidoFila(fila, tablero)
 print(imprimir)
+columna = input("\nNro de Columna que desea Imprimir: ")
+impri = contenidoCol(columna, tablero)
+print(impri)
+
 
